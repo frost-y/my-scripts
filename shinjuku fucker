@@ -6,6 +6,8 @@
     3: Execute script (reexecute everytime you unequip)
 --]]
 
+_G.loopkill = true -- toggler
+
 pcall(function()
 coroutine.resume(coroutine.create(function()
     while _G.loopkill == true do wait()
