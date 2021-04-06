@@ -1,0 +1,116 @@
+--[[
+    SHINJUKU KILL ALL SCRIPT
+    How to use:
+    1: Buy a pistol from the pawn shop
+    2: Equip pistol
+    3: Execute script (reexecute everytime you unequip)
+--]]
+
+_G.loopkill = true -- toggler
+
+pcall(function()
+coroutine.resume(coroutine.create(function()
+    while _G.loopkill == true do wait()
+        for i,v in pairs(game.Players:GetPlayers()) do
+            if v ~= Player then
+                if v.Character then
+                    local Player = game.Players.LocalPlayer
+                    local args = {
+   [1] = game:GetService("Players").LocalPlayer.Character.Pistol,
+   [2] = game:GetService("Players").LocalPlayer,
+   [3] = v.Character.Humanoid,
+   [4] = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart,
+   [5] = {
+       [1] = 200,
+       [2] = 2,
+       [3] = true,
+       [4] = 266.49545288086,
+       [5] = false,
+       [6] = 10000,
+       [7] = 1000
+   },
+   [6] = {
+       [1] = 0,
+       [2] = 0,
+       [3] = false,
+       [4] = false,
+       [5] = game:GetService("Players").LocalPlayer.Character.Pistol.GunScript_Server.IgniteScript,
+       [6] = game:GetService("Players").LocalPlayer.Character.Pistol.GunScript_Server.IcifyScript,
+       [7] = 100,
+       [8] = 100
+   },
+   [7] = {
+       [1] = false,
+       [2] = 5,
+       [3] = 3
+   },
+   [8] = game:GetService("Players").LocalPlayer.Character.Torso,
+   [9] = {
+       [1] = false,
+       [2] = {
+           [1] = 1930359546
+       },
+       [3] = 1,
+       [4] = 1.5,
+       [5] = 1,
+       [6] = game:GetService("Players").LocalPlayer.Character.Pistol.GunScript_Local.GoreEffect
+   }
+}
+
+game:GetService("ReplicatedStorage").Remotes.InflictTarget:InvokeServer(unpack(args))
+                end
+            end
+        end
+    end
+end))
+
+_G.loopkill = true -- set to false and re-execute if you want to stop it
+
+while true do wait()
+   if _G.loopkill == true then
+local args = {
+   [1] = game:GetService("Players").LocalPlayer.Character.Pistol,
+   [2] = game:GetService("Players").LocalPlayer,
+   [3] = game:GetService("Players").TargetsNameHere.Character.Humanoid,
+   [4] = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart,
+   [5] = {
+       [1] = 200,
+       [2] = 2,
+       [3] = true,
+       [4] = 266.49545288086,
+       [5] = false,
+       [6] = 10000,
+       [7] = 1000
+   },
+   [6] = {
+       [1] = 0,
+       [2] = 0,
+       [3] = false,
+       [4] = false,
+       [5] = game:GetService("Players").LocalPlayer.Character.Pistol.GunScript_Server.IgniteScript,
+       [6] = game:GetService("Players").LocalPlayer.Character.Pistol.GunScript_Server.IcifyScript,
+       [7] = 100,
+       [8] = 100
+   },
+   [7] = {
+       [1] = false,
+       [2] = 5,
+       [3] = 3
+   },
+   [8] = game:GetService("Players").LocalPlayer.Character.Torso,
+   [9] = {
+       [1] = false,
+       [2] = {
+           [1] = 1930359546
+       },
+       [3] = 1,
+       [4] = 1.5,
+       [5] = 1,
+       [6] = game:GetService("Players").LocalPlayer.Character.Pistol.GunScript_Local.GoreEffect
+   }
+}
+
+game:GetService("ReplicatedStorage").Remotes.InflictTarget:InvokeServer(unpack(args))
+end
+end
+end)
